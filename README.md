@@ -3,7 +3,9 @@
 ## Analyses 1
 ### Executive Summary
 Our Exploratory Data Analysis (EDA) of NYC real estate markets, particularly Richmond Hill in Queens, revealed key trends and insights. Residential sales lead the market, accounting for $145.3 billion in Queens, with Richmond Hill standing out at $4.56 billion. Sales distribution in 2021 showed a significant upsurge during the summer months, hinting at heightened real estate activities during this period. We also observed a positive correlation between property size and sale value, with larger, high-end properties greatly influencing the average prices.
+
 The EDA also assessed the five-year sales transaction growth rate, Compound Annual Growth Rate (CAGR), and total revenue. Positive sales transaction growth trend was noticeable from 2017-2021 across NYC, Queens, and Richmond Hill. Queens and Richmond Hill demonstrated a CAGR of 4.96% and 4.76% respectively from 2003-2021, indicating steady growth over this timeframe. Richmond Hill registered a notable total revenue of $1.7 million in 2021, ranking second in Queens borough.
+
 Our analysis suggests that Richmond Hill is a good new real estate office location. We must examine additional factors in more detail to make an informed decision. Specifically, we should look at metrics like property age, sale price per square foot, sale price per unit, and days on the market. These data points can give us deeper insights into the local real estate market. Additionally, we should consider operational costs, potential competition, and how our strategic objectives align with company goals. While we can use growth predictions and the CAGR to guide our analysis, we should be cautious since past performance doesn't always predict future results. Considering all these factors, we can determine if Richmond Hill is the right place to establish our new real estate office.
 
 ### Problem Understanding and Definition
@@ -55,10 +57,12 @@ The standout point here is the significant disparity in revenue between boroughs
 ## Analysis 2
 ### Executive Summary
 Our analysis of Richmond Hill's real estate market compared to other Queens neighborhoods and insights from the "NYC Real Estate Expansion: Analytics for Location and Specialization" report shows that opening a new real estate brokerage office in Richmond Hill is feasible and potentially profitable. Here are the key findings: 
+
 1.	Trend Analysis: The average sale price per square foot in Richmond Hill has consistently increased over the past few decades, reaching $285.52. This trend indicates a growing and resilient real estate market. 
 2.	Comparative Market Evaluation: Richmond Hill is a more affordable option than other neighborhoods in Queens, with an average sale price per square foot of $285.52 compared to Queens' average of $335.81. The market has potential to attract investors. 
 3.	Market Stability: The real estate market in Richmond Hill is more stable than other Queens neighborhoods, with a lower standard deviation in prices ($72.12 versus $91.41). This stability reduces investment risks and is attractive to prospective homeowners. 
 4.	Market Position: While the average sale price per square foot in Richmond Hill is lower than the Queens average, it offers an affordability advantage that could attract diverse clients. 
+
 Richmond Hill's affordable real estate market is consistently growing and stable, making it attractive to home buyers and investors. However, it's important to remember that external factors like economic fluctuations, policy changes, or unforeseen events can impact the market's stability and growth trends. Additional analyses such as Time Series Forecasting, Spatial Analysis, Multiple Regression Analysis, Cluster Analysis, and Market Demand Analysis can help confirm Richmond Hill's potential for a new brokerage office.
 
 ### Problem Understanding and Definition
@@ -81,7 +85,10 @@ By carefully preparing our data with these steps, we ensure a sound basis for a 
 2.	Compared to other neighborhoods, Richmond Hill is less volatile. When the average price per square foot in different neighborhoods, like Forest Hills, Kew Gardens and South Ozone Park, shows significant fluctuations, Richmond Hill tends to maintain a steadier trend. This trend means that while Richmond Hill may not have the highest average sale price per square foot, it also doesn't have the lowest values. (Figure 1) (Figure 2) (Figure 3) (Figure 6)
 3.	Other neighborhoods, like South Ozone Park and Kew Gardens, are more volatile than Richmond Hill. They have experienced more significant fluctuations, especially in response to external factors like the 2008 financial crisis. On the other hand, Richmond Hill has shown more consistency, with gradual and steady growth, particularly since 2012. (Figure 2) (Figure 3)
 4.	Richmond Hill's average price per square foot is generally lower than the larger Queens average. However, the growth rate in Richmond Hill is like that of Queens, suggesting that while properties in Richmond Hill may be less expensive, they offer comparable growth potential. (Figure 11)
-5.	The similarities and differences between Richmond Hill and other neighborhoods indicate potential opportunities for a new real estate brokerage office. Despite its lower average price per square foot, Richmond Hill's consistency and resilience could be advantageous. It may appeal to many clients, from those seeking more affordable properties to those looking for steady real estate growth. (Figure 4) (Figure 7) (Figure 9)
+5.	The similarities and differences between Richmond Hill and other neighborhoods indicate potential opportunities for a new real estate brokerage office. 
+
+
+Despite its lower average price per square foot, Richmond Hill's consistency and resilience could be advantageous. It may appeal to many clients, from those seeking more affordable properties to those looking for steady real estate growth. (Figure 4) (Figure 7) (Figure 9)
 Based on the data and analysis, Richmond Hill may be a good location for a new real estate brokerage office. The stable and consistent growth in the average price per square foot makes it an attractive location. Furthermore, compared to the larger Queens area, it offers similar growth potential but at a generally lower price point, which could appeal to various clients.
 
 #### Summary Statistics: Comparing Richmond Hill with other Neighborhoods.
@@ -97,7 +104,9 @@ Considering the above information, Richmond Hill is a promising new real estate 
 ## Analysis 3
 ### Executive Summary
 This analysis aimed to provide valuable insights for establishing new real estate brokerage offices in New York City, explicitly focusing on Richmond Hill's viability as a potential location. The analysis used a two-pronged approach to categorize neighborhoods based on their real estate market dynamics and compare Richmond Hill's residential property prices to other neighborhoods.
+
 In the first phase, we grouped neighborhoods into two clusters using the K-means clustering algorithm based on median sale price, number of sales, and price per square foot. Cluster 1 (red) included neighborhoods with higher median sale prices, fewer sales, and a higher price per square foot, while Cluster 2 (blue) contained neighborhoods with lower median sale prices, more sales, and a lower price per square foot. We found Richmond Hill classified as part of Cluster 2.
+
 The second phase involved comparing Richmond Hill's residential property prices to other neighborhoods using Welch's t-tests. The results indicated that Richmond Hill's property prices were lower than neighborhoods such as Jamaica, Jamaica Hills, Jamaica Estates, Forest Hills, and Kew Gardens but higher than Jamaica Bay (Queens) and South Jamaica. There is no significant difference in the mean sale price of properties in Richmond Hill and that of Ozone Park, while its property prices were significantly lower than Woodhaven's.
 
 Overall, the results confirm our previous analyses’ findings and suggest that Richmond Hill could be a good location for a new real estate brokerage office. Despite the potential for lower commission amounts due to relatively lower property prices, the neighborhood's vibrant real estate market and affordability compared to surrounding areas could attract more potential buyers and facilitate more transactions.
@@ -162,7 +171,9 @@ In conclusion, our analysis provides valuable insights into residential sale pri
 ## Analysis 4
 ### Executive Summary
 The project focused on identifying influential price factors, predicting future sales, and recognizing potential discrepancies in property valuations. We used several models:
+
 ETS: This model revealed that the residential real estate sales in Richmond Hill have been consistently increasing since 2009. The ETS model predicted a continued rise in total sales for the next eight quarters, ranging from approximately $82.9 million in Q2 of 2022 to $87.7 million in Q1 of 2024. Despite having a higher AIC and BIC than the ARIMA model, we selected the ETS model due to its better forecast accuracy in terms of MAE, RMSE, and MAPE.
+
 Multiple Regression Models:  The first model considered time and seasonality and suggested that these variables could explain about 64.45% of sales variation. The second model found that Sale Date, Year Built, Gross Square Feet, and Number of Units were significant predictors of the sale price. Building Type was less significant, with specific building codes considered redundant. These variables explained about 69% of the sales variation.
 By analyzing p-values, we identified the most and least useful predictors, providing insights for decision-making regarding which property attributes significantly impact sale prices. The residual analysis showed that some properties sold for less or more than the predicted prices. This information can guide investment decisions and provide insights to clients. However, these insights should be supplemented with a comprehensive understanding of local market dynamics and other property-specific factors not included in the models. These insights suggest that Richmond Hill could be a good location for a new brokerage. However, it's essential to remember that these models and their results only capture part of the full complexity of the real estate market. Local market conditions, macroeconomic trends, and unexpected events could impact sales and prices, suggesting the need for ongoing analysis and monitoring.
 
@@ -229,4 +240,17 @@ The discrepancies between the model's predictions and actual sale prices can ari
 If we omitted important factors from the model, then the residuals may reflect the influence of these omitted variables rather than "bargains" or "overpricing."
 
 In summary, these insights can greatly benefit creating a new real estate brokerage in Richmond Hill. Identifying properties that are either overpriced or a good deal can guide the brokerage's investment choices and provide buying insights to clients. Nevertheless, it's crucial to remember that these predictions should be combined with thoroughly comprehending the local market and other specific property factors not considered in the model.
+
+Next 8 Forecasts
+Quarter	Forecast_Sale_Price
+2022 Q1	82922911.52
+2022 Q2	83606217.65
+2022 Q3	84289523.78
+2022 Q4	84972829.91
+2023 Q1	85656136.04
+2023 Q2	86339442.17
+2023 Q3	87022748.3
+2023 Q4	87706054.43
+![image](https://github.com/aolayeye/consolidated_analyses_01_04/assets/67847583/3aadd268-e36b-4362-ae8c-7588c1ada6ea)
+
 
