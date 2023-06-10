@@ -22,13 +22,16 @@ The initial stage of our analysis involves data cleaning and preparation in Powe
 ### Exploratory Data Analysis
 #### Five – Number Summary
 Our EDA focused on comparing residential and commercial property transactions across various neighborhoods and boroughs, emphasizing Richmond Hill in Queens. The analysis revealed that residential transactions involving smaller properties were more common across all areas. However, commercial transactions, while less frequent, had potential for larger property sizes in particular regions, such as Jamaica in Queens. (Figure 1)
+
 Richmond Hill typically features smaller properties in terms of Gross Square Feet (GSF), translating to lower sale prices compared to neighborhoods with larger properties. Nonetheless, differences are apparent across boroughs, with Manhattan featuring significantly larger properties and higher sale prices. (Figure 2)
 A clear correlation between Gross Square Feet and Sale Price emerged, pointing to the fact that larger properties command higher prices. This finding is important, as areas with higher prices could present profitable opportunities due to their direct impact on revenue potential and indication of market activity.
 
 #### Total Sales by Property Type – Boroughs, Neighborhoods
 Borough-wise, Manhattan led in total sales for commercial and residential properties, followed by Brooklyn, Queens, and the Bronx. However, in Queens, residential sales significantly exceeded commercial sales, suggesting a predominantly residential real estate market, a trend observed across other boroughs except for Manhattan.
+
 Neighborhood-wise, Richmond Hill registered the highest total residential sales in Queens and showed significant commercial and mixed property sales, indicating a diverse real estate market. Although other neighborhoods like Forest Hills and South Jamaica also had high residential sales, their commercial and mixed property sales were lower. Jamaica stood out with high sales across all property types. (Figure 3)
-Sales Distribution in 2021 – NYC, Queens, Richmond Hill
+
+#### Sales Distribution in 2021 – NYC, Queens, Richmond Hill
 For NYC and Queens, sales transactions peaked in August and were lowest in December, revealing a seasonal pattern. (Figure 4)
 However, Richmond Hill showed a more consistent sales distribution across the months. The neighborhood saw smaller peaks in June and August but maintained a steady transaction rate throughout the year. (Figure 5)
 
@@ -44,12 +47,14 @@ In conclusion, while NYC and Queens showed substantial growth in sales transacti
 Among all boroughs, Brooklyn exhibited the highest CAGR at 6.73%, while Manhattan showed a negative growth rate at -3.34%. The Queens borough displayed moderate growth at 4.96%. Within Queens, Jamaica had the highest neighborhood CAGR at 5.44%, while Forest Hills experienced the lowest growth at 0.82%.
 Applying the CAGR to predict the expected number of transactions for 2022, Queens could have approximately 23,338 transactions, and Richmond Hill around 400.
 Despite its low growth rate, Forest Hills emerged as a high-value neighborhood, indicated by the largest maximum gross square feet and a high maximum sale price among the examined Queens neighborhoods. (Figure 8)
+
 In conclusion, Richmond Hill shows robust growth, aligning closely with the broader Queens borough growth trend, indicating it could be a suitable neighborhood for a new real estate office. However, these predictions are based on past trends and must be evaluated alongside factors like local demand, supply conditions, property prices, and market competition, as future market conditions may vary.
 
 #### Total Revenue
 This analysis examined total revenue for 2021 with revenue calculated based on a 5% commission on residential sales and 12.5% market penetration.
 Borough-wise, Manhattan leads with over $268 million in revenue, attributed to its high-value real estate market. Brooklyn follows with approximately $125 million, while Queens ranks third, generating around $90 million. These numbers indicate lower property prices in Queens despite a significant number of transactions. Staten Island and the Bronx have about $25 million in comparable revenues, considerably lower than the other boroughs.
 Forest Hills generates the highest revenue among Queens' neighborhoods, over $3 million, consistent with earlier analyses indicating larger, high-end properties. Richmond Hill is the second-highest revenue earner, with around $1.7 million, reflecting its strong real estate market. In contrast, Jamaica Bay has the lowest revenue of about $50k, suggesting fewer transactions, lower-priced properties, or both. (Figure 9)
+
 Comparing these revenue figures with sales trends observed in previous analyses, higher sales volume does not necessarily translate into higher revenue, particularly in areas where property prices are lower. The revenue seems to align more closely with the property prices in the areas than with the number of transactions.
 The standout point here is the significant disparity in revenue between boroughs and neighborhoods. It's interesting to see how the property prices and market activity in each borough or neighborhood directly affect the revenue generated. Such insights can be crucial for real estate companies when planning their strategies or deciding where to open new offices.
 
@@ -120,6 +125,7 @@ We began by cleaning and preparing our data in RStudio. To ensure data accuracy 
 1.	Only records from 2009 onwards were considered. 
 2.	We also excluded properties sold for less than $10,000 to eliminate extreme outliers. 
 3.	Similarly, we removed properties smaller than 300 square feet and included only residential property types in the analysis.
+
 This cleansing and filtering process produced a more refined dataset, enabling us to generate more accurate and meaningful insights during our exploratory data analysis. Consequently, our subsequent analyses, such as descriptive statistics generation, k-means clustering, and t-tests, will yield more reliable and insightful results that can better inform strategic decision-making.
 
 ### Exploratory Data Analysis
@@ -144,16 +150,20 @@ In conclusion, Richmond Hill's real estate market is predominantly residential, 
 #### Cluster Analysis: Data Preparation and KPIs
 We conducted a thorough cluster analysis of 256 neighborhoods across the five boroughs of New York City. The process included data preparation, selecting Key Performance Indicators (KPIs), scaling the data, and treating outliers. 
 To ensure relevance, we filtered the real estate transactions to include only those with a sale price of at least $10,000 and properties larger than 300 square feet from 2009 onwards. We selected three KPIs: median sale price, number of sales, and price per sqft, based on their variance and correlation analyses, providing unique and relevant clustering information. These KPIs allowed us to segment neighborhoods meaningfully for insight generation. (Figure 4)
+
 To achieve accurate and meaningful results, we scaled the data to ensure all KPIs were on a similar scale, and we analyzed six outlier rows across the three KPIs. We judged their impact on the overall analysis to be minimal and kept them in the data.
 In the next step we determined the appropriate number of clusters using the Elbow method and performed k-mean clustering on the scaled data. It is important to note that although the chosen KPIs and the presence of outliers influence the insights from the cluster analysis, the insights derived present a valuable starting point for further exploration and analysis. (Figure 5)
 
 #### Cluster Analysis: Visualizing the Clusters
 Using a scatter plot matrix, we could visualize the clusters and understand the relationships between our Key Performance Indicators (KPIs): median sale price, number of sales, and price per square foot.
 The scatter plot matrix highlighted a clear distinction between the two types of neighborhoods. The red cluster represented neighborhoods with a broader range of median sale prices and a positive correlation between the number of sales and median sale price. The blue cluster, in contrast, showed more uniform median sale prices and a weaker correlation between the number of sales transactions and median sale price.
+
 The correlation matrix provided further insights. A negative correlation (-0.352) between the median sale price and the number of sales suggested that more expensive neighborhoods tend to have fewer sales. Conversely, a strong positive correlation (0.815) between the median sale price and the price per square foot indicated that neighborhoods with higher prices also tend to have a higher price per square foot. An inverse relationship was seen between the number of sales and the price per square foot (-0.311), suggesting that neighborhoods with more sales tend to be more affordable. (Figure 6)
+
 Upon examining the clusters, Richmond Hill and other neighborhoods of interest were found in Cluster 2 (the blue cluster). This segmentation suggests that these neighborhoods have a more uniform median sale price and a weaker correlation between the number of sales and median sale price, reflecting a more stable and predictable real estate market.
 
 Given the nature of the blue cluster, Richmond Hill may be a suitable location for a new real estate brokerage office. The uniform price range and weaker correlation between the number of sales and price indicate a potentially stable and predictable market that could appeal to a brokerage, as it may offer more predictable commissions and be less susceptible to large market fluctuations. (Figure 7) (Figure 8)
+
 In conclusion, the EDA revealed two distinct clusters in the New York City real estate market, each with unique characteristics and trends. The neighborhood of Richmond Hill falls within a segment that might be advantageous for a new real estate brokerage office due to its more stable and predictable real estate market. It is important to note where k =3, Cluster 3 (Richmond Hill and other neighborhoods) showed a weak positive relationship between the number of sales and the price per square foot. This is not ideal, considering the strong correlation we previously found between sales price and gross square footage. In the next step, we will supplement these findings by comparing prices across neighborhoods using the Welch Two sample t-test.
 
 #### Hypothesis Test – Comparing Residential Sale Prices
@@ -172,9 +182,11 @@ In conclusion, our analysis provides valuable insights into residential sale pri
 ### Executive Summary
 The project focused on identifying influential price factors, predicting future sales, and recognizing potential discrepancies in property valuations. We used several models:
 
-ETS: This model revealed that the residential real estate sales in Richmond Hill have been consistently increasing since 2009. The ETS model predicted a continued rise in total sales for the next eight quarters, ranging from approximately $82.9 million in Q2 of 2022 to $87.7 million in Q1 of 2024. Despite having a higher AIC and BIC than the ARIMA model, we selected the ETS model due to its better forecast accuracy in terms of MAE, RMSE, and MAPE.
+#### ETS: 
+This model revealed that the residential real estate sales in Richmond Hill have been consistently increasing since 2009. The ETS model predicted a continued rise in total sales for the next eight quarters, ranging from approximately $82.9 million in Q2 of 2022 to $87.7 million in Q1 of 2024. Despite having a higher AIC and BIC than the ARIMA model, we selected the ETS model due to its better forecast accuracy in terms of MAE, RMSE, and MAPE.
 
-Multiple Regression Models:  The first model considered time and seasonality and suggested that these variables could explain about 64.45% of sales variation. The second model found that Sale Date, Year Built, Gross Square Feet, and Number of Units were significant predictors of the sale price. Building Type was less significant, with specific building codes considered redundant. These variables explained about 69% of the sales variation.
+#### Multiple Regression Models:  
+The first model considered time and seasonality and suggested that these variables could explain about 64.45% of sales variation. The second model found that Sale Date, Year Built, Gross Square Feet, and Number of Units were significant predictors of the sale price. Building Type was less significant, with specific building codes considered redundant. These variables explained about 69% of the sales variation.
 By analyzing p-values, we identified the most and least useful predictors, providing insights for decision-making regarding which property attributes significantly impact sale prices. The residual analysis showed that some properties sold for less or more than the predicted prices. This information can guide investment decisions and provide insights to clients. However, these insights should be supplemented with a comprehensive understanding of local market dynamics and other property-specific factors not included in the models. These insights suggest that Richmond Hill could be a good location for a new brokerage. However, it's essential to remember that these models and their results only capture part of the full complexity of the real estate market. Local market conditions, macroeconomic trends, and unexpected events could impact sales and prices, suggesting the need for ongoing analysis and monitoring.
 
 ### Problem Understanding and Definition
@@ -200,9 +212,11 @@ The time series started in the first quarter of 2009 and had a frequency of 4.
 The first part of our EDA involves examining the trend and seasonality of the time series data.
 Trend Analysis: An initial glance at the time series plot shows an overall upward trend in the neighborhood's total dollar amount of residential real estate sales from 2009 to the present. Although there are some fluctuations, the general trend indicates consistent growth over the years. For instance, in the first quarter of 2009, the total sales price was $31,238,662, which escalated to $81,627,544 by the first quarter of 2021. (Figure1)
 
-Seasonality Analysis: The data also exhibit some seasonality, with the fourth quarter often recording higher sales than other quarters. For example, in 2009, the fourth quarter registered the highest sales amounting to $52,555,693. While we do not observe this pattern consistently across all years, it's a trend that reoccurs in multiple instances. (Figure1)
+#### Seasonality Analysis: 
+The data also exhibit some seasonality, with the fourth quarter often recording higher sales than other quarters. For example, in 2009, the fourth quarter registered the highest sales amounting to $52,555,693. While we do not observe this pattern consistently across all years, it's a trend that reoccurs in multiple instances. (Figure1)
 
-Choice of Model: We must consider the observed trend and seasonality to model this time series data effectively. The Moving Average model is a simple forecasting method that uses the average of the previous observations to predict future values. On the other hand, ETS is a more complex method that can account for trends and seasonality, making it a potentially good fit for our dataset. (Figure2) (Figure4)
+#### Choice of Model: 
+We must consider the observed trend and seasonality to model this time series data effectively. The Moving Average model is a simple forecasting method that uses the average of the previous observations to predict future values. On the other hand, ETS is a more complex method that can account for trends and seasonality, making it a potentially good fit for our dataset. (Figure2) (Figure4)
 Upon evaluating the model parameters and residuals, we find that the ARIMA and SARIMA models—more sophisticated versions of the MA model—perform similarly, suggesting they are identical in this context. We expected this outcome since the SARIMA model defaults to an ARIMA model when there are no seasonal parameters, which is our case.
 
 The ETS model, although showing a higher Akaike Information Criterion (AIC) and Bayesian Information Criterion (BIC) implying a worse fit to the data compared to ARIMA and SARIMA models, presents lower Mean Absolute Error (MAE), Root Mean Square Error (RMSE), and Mean Absolute Percentage Error (MAPE). The MAE, RMSE, and MAPE suggest that the ETS model may have slightly better forecasting accuracy. Additionally, the ETS model shows a lower standard deviation of residuals, which could indicate a better fit to the data.
@@ -214,15 +228,20 @@ It's crucial to remember that these results are based on a single train-test spl
 Our analysis used the ETS(MAN) model to forecast the total dollar amount of residential real estate sales in Richmond Hill. The model summary provided us with essential statistics to evaluate its performance. Lower AIC and BIC scores indicated a better fit of the model to our data. In the case of our ETS(MAN) model, the AIC was 1912.3661, and BIC was 1922.1223.
 The ME was nearly 0 (0.012755), indicating a minimal deviation between observed and predicted values. The RMSE was 0.223382, and the MAE was 0.17797, suggesting that the model's residuals were negligible. The MPE and MAPE were also almost 0, indicating that the model's percentage error was minimal. The ACF1 score was -0.0357191, suggesting a slight negative autocorrelation in the residuals. (Figure3) (Figure4)
 The ETS(MAN) model's forecast for the next eight quarters showed a steady increase in the total dollar amount of residential real estate sales in Richmond Hill. The forecasted sales values ranged from $82,922,911.52 in Q2 2022 to $87,706,054.43 in Q1 2024. (Figure5)
+
 Although there were minor discrepancies between actual and forecasted sales values in some quarters, the standard deviation (7,242,444.81) between them is not substantial, considering the size of the predicted values. Additionally, with a z-score of 0.094347, the model's prediction for four forecasted quarters was very close to the average accuracy of the model's predictions, indicating its reliability and stability. The overlay plot shows that the model is performing well, since the residuals are randomly distributed around zero, indicating that the model's predictions are, on average, accurate. (Figure6)
+
 Overall, the ETS(MAN) model fit the data well and produced reliable forecasts for the next eight quarters. The forecasted sale prices suggest that Richmond Hill is a good neighborhood for a new real estate brokerage, given the model's low error rates and forecasts of steady growth in real estate sales. However, external factors not included in the model could influence real estate sales, and ongoing monitoring and analysis would be crucial to ensure the forecast remains accurate.
 
 #### Multiple Regression – Model Summary and Interpretation
 The multiple regression model provides a comprehensive approach to forecasting the next eight quarters of sales by considering Time and seasonality as variables. 
-Model Summary: The AIC and BIC values are 1854.489523 and 1866.196985, respectively, suggesting a reasonable fit. The adjusted R-squared value is 0.644533779, which indicates that approximately 64.45% of the variation in residential real estate sales can be explained by the model's input variables (Time and seasonality). The F-Statistic is 24.11838701, suggesting a statistically significant relationship between the variables and the sales. (Figure8)
+
+#### Model Summary: 
+The AIC and BIC values are 1854.489523 and 1866.196985, respectively, suggesting a reasonable fit. The adjusted R-squared value is 0.644533779, which indicates that approximately 64.45% of the variation in residential real estate sales can be explained by the model's input variables (Time and seasonality). The F-Statistic is 24.11838701, suggesting a statistically significant relationship between the variables and the sales. (Figure8)
 Forecasted Sales: The forecasted sales for the next eight quarters show trend and seasonality. The trend is increasing over Time, and the fluctuations between quarters reflect the seasonality. For instance, Q2 (April-June) and Q4 (October-December) quarters of both 2022 and 2023 have forecasted sales higher than their preceding quarters. (Figure9)
 
-P-values: The P-values for the coefficients help determine the significance of each variable in the model. Here, the P-value for Time is less than 0.05 (1.98172E-12), suggesting that Time is a significant variable in predicting sales. However, the P-values for the seasonal variables (Q1, Q2, Q3) are all above 0.05, indicating that they are not statistically significant predictors within this model. In other words, according to this model, changes in quarters do not significantly impact sales. Overall, the model is statistically significant with a very low P-value of 0.0000000000651. (Figure7)
+#### P-values: 
+The P-values for the coefficients help determine the significance of each variable in the model. Here, the P-value for Time is less than 0.05 (1.98172E-12), suggesting that Time is a significant variable in predicting sales. However, the P-values for the seasonal variables (Q1, Q2, Q3) are all above 0.05, indicating that they are not statistically significant predictors within this model. In other words, according to this model, changes in quarters do not significantly impact sales. Overall, the model is statistically significant with a very low P-value of 0.0000000000651. (Figure7)
 The multiple regression model predicts a rise in residential real estate sales in Richmond Hill for the next eight quarters. This analysis can be valuable for those considering opening a new real estate brokerage in the area. However, it's essential to acknowledge that the model has its limitations. Although the model indicates that seasonal changes don't significantly impact sales, business experience may suggest otherwise. 
 Furthermore, while the model has a good fit (with an adjusted R-squared of approximately 0.64), around 35% of sales variation remains unexplained. The unexplained 35% could be because of other factors not accounted for in the model, such as macroeconomic variables, local market conditions, or unexpected events. Considering these factors and refining the model or using a complementary method to improve the forecast would be beneficial.
 
@@ -232,7 +251,8 @@ The most useful predictors are those with a p-value less than 0.05. Sale Date, Y
 Some Building Code levels, such as A2, A3, B1, B9, C5, and D1, have p-values over 0.05, meaning they do not significantly contribute to the model. We can view them as redundant variables. We can further analyze the Building Code level description to determine if there is a pattern to codes with high P-values versus low P-values.
 
 To sum up, the information gathered can aid in making informed decisions regarding a new real estate agency in Richmond Hill. Using the model's forecasts can help pinpoint market inefficiencies, leading to better advice for clients on what factors influence market value. It's essential to remember that the model does not account for other market and location-related factors, which may be crucial to understanding Richmond Hill's real estate landscape.
-Multiple Regression Analysis – Residual Analysis
+
+#### Multiple Regression Analysis – Residual Analysis
 The residuals show the difference between the observed and predicted sale prices, allowing us to identify both bargains and overpriced properties. Bargains are properties with large negative residuals, meaning they were sold for less than what the model predicted. These include properties like "86-21 112TH STREET", with a residual of approximately -2,534,924.99, and "116-05 JAMAICA AVENUE", with a residual of about -1,098,706.37. 
 On the other hand, overpriced properties are those with large positive residuals, signifying they were sold for more than the model's prediction. Notable overpriced properties are "118-22 ATLANTIC AVENUE", with a residual of about 2,881,914.22, and "87-14 129TH STREET", with a residual of around 1,942,841.85. (Figure12)
 
