@@ -242,6 +242,7 @@ If we omitted important factors from the model, then the residuals may reflect t
 In summary, these insights can greatly benefit creating a new real estate brokerage in Richmond Hill. Identifying properties that are either overpriced or a good deal can guide the brokerage's investment choices and provide buying insights to clients. Nevertheless, it's crucial to remember that these predictions should be combined with thoroughly comprehending the local market and other specific property factors not considered in the model.
 
 Next 8 Forecasts
+
 Quarter	Forecast_Sale_Price
 2022 Q1	82922911.52
 2022 Q2	83606217.65
@@ -251,6 +252,7 @@ Quarter	Forecast_Sale_Price
 2023 Q2	86339442.17
 2023 Q3	87022748.3
 2023 Q4	87706054.43
+
 ![image](https://github.com/aolayeye/consolidated_analyses_01_04/assets/67847583/3aadd268-e36b-4362-ae8c-7588c1ada6ea)
 
 
