@@ -243,15 +243,16 @@ In summary, these insights can greatly benefit creating a new real estate broker
 
 Next 8 Forecasts
 
-Quarter	Forecast_Sale_Price
-2022 Q1	82922911.52
-2022 Q2	83606217.65
-2022 Q3	84289523.78
-2022 Q4	84972829.91
-2023 Q1	85656136.04
-2023 Q2	86339442.17
-2023 Q3	87022748.3
-2023 Q4	87706054.43
+Quarter|Forecast_Sale_Price
+
+2022 Q1	|82922911.52
+2022 Q2	|83606217.65
+2022 Q3	|84289523.78
+2022 Q4	|84972829.91
+2023 Q1	|85656136.04
+2023 Q2	|86339442.17
+2023 Q3	|87022748.3
+2023 Q4	|87706054.43
 
 ![image](https://github.com/aolayeye/consolidated_analyses_01_04/assets/67847583/3aadd268-e36b-4362-ae8c-7588c1ada6ea)
 
