@@ -21,7 +21,7 @@ The initial stage of our analysis involves data cleaning and preparation in Powe
 
 ### Exploratory Data Analysis
 #### Five – Number Summary
-Our EDA focused on comparing residential and commercial property transactions across various neighborhoods and boroughs, emphasizing Richmond Hill in Queens. The analysis revealed that residential transactions involving smaller properties were more common across all areas. However, commercial transactions, while less frequent, had potential for larger property sizes in particular regions, such as Jamaica in Queens. (Figure 1)
+Our EDA focused on comparing residential and commercial property transactions across various neighborhoods and boroughs, emphasizing Richmond Hill in Queens. The analysis revealed that residential transactions involving smaller properties were more common across all areas. However, commercial transactions, while less frequent, had the potential for larger property sizes in particular regions, such as Jamaica in Queens. (Figure 1)
 
 Richmond Hill typically features smaller properties in terms of Gross Square Feet (GSF), translating to lower sale prices compared to neighborhoods with larger properties. Nonetheless, differences are apparent across boroughs, with Manhattan featuring significantly larger properties and higher sale prices. (Figure 2)
 A clear correlation between Gross Square Feet and Sale Price emerged, pointing to the fact that larger properties command higher prices. This finding is important, as areas with higher prices could present profitable opportunities due to their direct impact on revenue potential and an indication of market activity.
@@ -278,3 +278,92 @@ These insights can greatly benefit creating a new real estate brokerage in Richm
 
 ##### The average cost per gross square foot of commercial real estate in RICHMOND HILL for the last year == 2021
 603.5603
+
+## Analysis 5 - Prescriptive Analysis
+### Executive Summary
+Our business case has systematically progressed through descriptive, diagnostic, predictive, and prescriptive analytics. We began with a comprehensive understanding of our historical data, where we identified key trends and patterns. We then diagnosed the causes of these patterns and used this understanding to predict future outcomes. Our cluster analysis, hypothesis testing, and predictive modeling consistently identified Richmond Hill as a unique opportunity due to its stable, low-price points compared to other neighborhoods. 
+
+In this prescriptive step, we developed an optimization model to guide our strategic decision to open a new brokerage in Richmond Hill. Our model optimized three key decision variables - commission rate, number of employees, and office size - and maximized our profit's NPV over eight quarters from 2022 Q1 to 2023 Q4. The model's results suggest a strategic roadmap for our new brokerage. We should maintain a commission rate of around 0.045 to attract a larger market share. The number of employees should remain constant at 1, which is sufficient to handle the market activity in Richmond Hill. The office size should stay constant at the minimum required size of 375 square feet to minimize rent and utility costs. With these recommendations, we expect to generate a total discounted profit of $1,443,088.49 and 6.75% market penetration over eight quarters. 
+
+In conclusion, prescriptive analytics has provided valuable insights to guide our decision-making, optimize our operations and achieve our financial goals. However, it's important to note that these recommendations rely on the current market conditions and our understanding of our variables. As with any model, monitoring performance and updating as necessary to reflect changing market conditions and new data is crucial. This ongoing commitment to data-driven decision-making will be vital to our sustained success in the Richmond Hill real estate market.
+
+#### Problem Understanding and Definition
+Our previous analysis shows that the real estate market in Richmond Hill presents a significant opportunity for expansion and growth. As a real estate company looking to open a new brokerage in this area, it is crucial to make strategic decisions to maximize profitability and market penetration. These decisions include determining the optimal commission rate, the number of employees to hire, and the size of the office to rent. 
+
+The commission rate affects the company's revenue from sales but also influences market penetration, as a lower commission rate can attract more clients. While the number of employees affects the operating costs, increasing salary costs, the number of employees also increases market penetration. The office size also affects the operating costs, as a larger office incurs higher rent and utility costs.
+
+This project is a prescriptive analytics task that uses data and analytical models to determine the best course of action for a given problem. In this case, the problem is determining the optimal commission rate, number of employees, and office size to maximize the net present value (NPV) of profit over the next eight quarters. 
+
+We define this scenario optimization problem with the following components: (Figure 1)
+1. Objective function: Maximize NPV = ∑ [(Revenue_t - Costs_t) / (1 + 0.015)^t] for t = 1 to 8
+2. Decision variables: Commission rate, number of employees, office size
+3. Constraints: 
+a.	Office size >= 250 + 125 * number of employees
+b.	Commission rate between 4% and 5%
+c.	Number of employees between 1 and 3 (Integer)
+The goal is to find the values of the decision variables that maximize the objective function while satisfying the constraints. The solution to this optimization problem will provide the best action for the real estate company to take in opening a new brokerage in Richmond Hill.
+
+#### Data Requirement Identification and Collection
+To perform our predictive analytics, we require the data for the next eight quarters, which we obtained from our previous analysis. This data is readily available in Microsoft Excel.
+
+#### Data Preparation 
+The data preparation stage is a crucial part of any prescriptive analytics project. This step involves transforming the raw data into an optimization model-acceptable format. In this project, we will prepare data for several variables, including commission rate, number of employees, office size, market penetration, revenue, rent and utilities, employee costs, total costs, profit, discount factor, and discounted profit. (Figure 1)
+1.	Commission Rate: We start with an initial guess - say 5%; the model will adjust it within the constraints (between 4% and 5%) during optimization.
+2.	Number of Employees: We start with an initial guess - say 1 - and adjust it within the constraints (between 1 and 3) during optimization.
+3.	Office Size: calculated as 250 + 125 * number of employees. This variable value ensures that we rent enough space for all employees.
+4.	Market Penetration: calculated as 0.055 + 0.0015 * ({0.05 - commission rate} / 0.001). This formula captures the trade-off between the commission rate and market penetration.
+5.	Revenue: calculated as market penetration * forecasted sale price * commission rate. This variable value gives the total revenue from sales for each quarter.
+6.	Rent and Utilities: calculated as 3 * 0.015 * 603.5603 * office size. This value gives the total cost of rent and utilities for each quarter.
+7.	Employee Costs: calculated as the number of employees * 65000 / 4. This value gives the total cost of salaries for each quarter.
+8.	Total Costs: calculated as the sum of rent, utilities, and employee costs.
+9.	Profit: calculated as revenue - total costs. This value gives the net profit for each quarter.
+10.	Discount Factor: calculated as 1 / (1 + 0.015)^t, where t, is the quarter number. This value discounts future profits to their present value.
+11.	Discounted Profit: calculated as profit * discount factor. This value gives the present value of the profit for each quarter.
+Once we calculate these variables, the data is ready to be used in the optimization model. The next step is to set up the model in Excel Solver, which involves defining the objective function, decision variables, and constraints as outlined in the Problem Understanding and Definition.
+
+#### Data Preparation – Setting up Solver.
+1.	The objective function is the sum of the discounted profit; we maximize the sum of the discounted profit across the eight quarters. (Figure 3) (Figure 6)
+2.	We select the decision variables – commission Rate, Number of Employees, and Office Size – as shown in (Figure 4) (Figure 6)
+3.	We set up the business constraints as shown in Figure 5 (Figure 6)
+
+The decision to constrain the number of employees between 1 and 3 vs. 0 and 3 hinges on the specific circumstances and objectives of the real estate company, which include: 
+
+Pros – 0<= Number of Employees_t <= 3 for all t
+a.	Flexibility: This constraint allows for the possibility of having no employees at certain times, which could be beneficial in unfavorable market conditions when the company wants to minimize costs.
+b.	Cost Minimization: If the costs associated with hiring employees outweigh the benefits of increased market penetration, the model might find a solution where the number of employees is zero to minimize costs.
+Cons – 0<= Number of Employees_t <= 3 for all t:
+a.	Feasibility: It may not be feasible to have zero employees. A real estate brokerage needs at least one employee to operate.
+b.	Market Penetration: Having zero employees would likely result in zero market penetration, which would not benefit the company.
+
+Pros – 1 <= Number of Employees_t <= 3 for all t
+a.	Feasibility: This constraint ensures we always have at least one employee, which is a more realistic scenario for a functioning real estate brokerage.
+b.	Market Penetration: Having at least one employee ensures that the company can maintain some level of market penetration.
+Cons – 1 <= Number of Employees_t <= 3 for all t
+a.	Cost: This constraint could lead to higher costs, as it always requires at least one employee. The company might prefer zero employees to minimize costs if the market conditions are unfavorable.
+b.	Flexibility: This constraint is less flexible as it doesn't allow the company to have zero employees, even if that might be the most cost-effective solution under certain circumstances.
+ 	
+  In conclusion, while both constraints have their merits, we propose a flexible approach that ensures a minimum level of operation and market penetration, which is crucial for a functioning real estate brokerage. We favor the constraint of always having at least one employee; 1 <= Number of Employees_t <= 3 for all t. An alternative involves considering the market conditions and varying the number of employees by quarter between 0 and 3. This approach ensures the company's presence in the market, which is vital for long-term success, and allows for cost optimization in response to changing market conditions. While this might lead to slightly higher costs in some quarters, it provides the flexibility to adjust the workforce according to the market demand, thus ensuring a balance between cost management and market penetration.
+
+#### A Note on Discounted Profit and Discounted Factor
+The discount factor and discounted profit are used in financial analysis to account for the time value of money: the principle that a dollar today is worth more than a dollar in the future.
+The discount factor is a multiplier that adjusts future cash flows to their present value calculated as 1 / (1 + r)^t, where r is the discount rate (in this case, the quarterly interest rate of 1.5% or 0.015) and t is the time (in this case, the quarter number). The discount factor decreases over time, reflecting that future cash flows are worth less than immediate cash flows.
+The discounted profit is the profit for each quarter adjusted to its present value using the discount factor calculated as the product of the profit and the discount factor. The discounted profit gives you the value of the profit in today's dollars, which allows you to compare earnings from different quarters on an equal basis. In the context of this optimization model, the objective is to maximize the net present value (NPV) of profit over the next eight quarters. The NPV is the sum of the discounted profits for all quarters. By maximizing the NPV, we are maximizing the total profit in today's dollars, considering the time value of money. (Figure 1) (Figure 2)
+
+
+
+#### Decision Variables – Assumptions 
+The optimization model results depend on some crucial assumptions about market penetration, office size, staffing costs, and the commission rate. We explain these assumptions as follows:
+1. Market Penetration: The model assumes a baseline market penetration of 5.5%. For every 0.1% decrease in the commission rate, market penetration increases by 0.15%, down to a minimum commission rate of 4% or a maximum of 5%. The number of employees also impacts market penetration; each employee hired increasing market penetration by 0.5%.
+2. Costs Associated with Opening and Staffing an Office: The model assumes that each office you open incurs rent and utility costs. The average cost per gross square foot of commercial real estate in the last year is $603.5603. Each month, we will pay 1.5% for rent and utilities for each square foot of office space you rent. We must rent at least 250 square feet of office space, plus 125 for each employee we hire. The model also assumes that we can hire up to 3 employees, each costing a yearly salary of $65,000, including benefits.
+3. Impact of the Percentage Commission: The model assumes that the office earns a 5% commission on sales. The commission rate is a decision variable in the model, and it influences both the revenue (directly, as a percentage of sales) and the market penetration (indirectly, as described above). (Figure 4)
+
+#### Model Summary and Interpretation
+1.	The optimization model provides a strategic roadmap for the real estate company planning to open a new brokerage in Richmond Hill. The model's output suggests the optimal commission rate, number of employees, and office size for each quarter from 2022 Q1 to 2023 Q4 to maximize the net present value (NPV) of profit. 
+2.	The commission rate remains relatively constant, hovering around 4.5% across the quarters. This strategy allows the company to maintain a competitive edge and attract a larger market share while ensuring a steady revenue stream from commissions.
+3.	The number of employees remains constant at one throughout all quarters. This strategy allows the company to manage its employee costs effectively while ensuring a sufficient workforce to handle market activities. (Figure 2)
+4.	The office size remains constant at a slightly larger size of 375 square feet. This strategy helps to provide adequate space for operations while keeping rent and utilities costs manageable. (Figure 8) (Figure 9)
+5.	The model's output also provides a detailed breakdown of each quarter's expected revenue, costs, and profit. The company can expect a discounted profit of approximately $1,443,088.49 and a 6.75% market penetration over the eight quarters. (Figure 7)
+
+These insights can guide the company's decision-making process as it plans to open a new brokerage in Richmond Hill. Following the model's recommendations, the company can optimize its operations to maximize profit while effectively managing costs and market penetration. However, we must remember that the presented results depend on specific assumptions and data we used in the model. Any alterations in market conditions, such as shifts in real estate prices or market penetration rates, could significantly impact the ideal strategy. Therefore, it is essential to consistently update the model with the most current data and modify the business strategy accordingly.
+
+In conclusion, the optimization model provides valuable insights for the company's strategic planning. By optimizing the commission rate, number of employees, and office size, the company can maximize its profit while effectively managing costs and market penetration.
